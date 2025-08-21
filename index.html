@@ -16,6 +16,7 @@
       --card: #12141a;
       --accent: #60a5fa;
       --ring: rgba(96,165,250,0.5);
+      --nav-h: 64px;
     }
     [data-theme="light"] {
       --bg: #ffffff;
@@ -27,15 +28,16 @@
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased;
+      background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: var(--nav-h);
     }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
     /* Nav */
     .nav {
-      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; width: 100%; backdrop-filter: saturate(180%) blur(10px);
       background: color-mix(in oklab, var(--bg) 70%, transparent);
       border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
     }
@@ -45,6 +47,7 @@
     .links { display: flex; gap: 18px; align-items: center; }
     .links a { opacity: 0.85; font-weight: 600; }
     .links a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+    .links a.active { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
     .nav button { background: var(--card); color: var(--text); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); padding: 8px 10px; border-radius: 12px; cursor: pointer; }
     /* Hero */
     .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; padding: 56px 24px 24px; }
@@ -61,7 +64,7 @@
     .avatar { width: 200px; aspect-ratio: 1/1; border-radius: 24px; border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); object-fit: cover; }
 
     /* Sections */
-    section { padding: 48px 24px; }
+    section { padding: 48px 24px; scroll-margin-top: var(--nav-h); }
     section h2 { font-size: clamp(22px, 3vw, 30px); margin: 0 0 12px; }
     section .lead { color: var(--muted); margin-top: 0; }
 
@@ -111,7 +114,7 @@
         </div>
       </div>
       <div>
-        <img class="avatar" src="profile_photo.jpeg" alt="Portrait of Alvin" />
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Portrait of Alvin" />
       </div>
     </section>
 
@@ -134,7 +137,7 @@
     </section>
 
     <section id="achievements">
-      <h2>Selected Achievements</h2>
+      <h2>Professional Achievements</h2>
       <ul>
         <li><strong>$6M Cost Savings</strong> — Led virtualization adoption for a command and control system, reducing hardware footprint by 50%.</li>
         <li><strong>65% Operational Efficiency Gain</strong> — Developed an emulator enabling realistic training without operational systems.</li>
@@ -143,7 +146,8 @@
     </section>
 
     <section id="projects">
-      <h2>Project Highlights</h2>
+      <!-- Professional projects -->
+      <h2>Professional Project Highlights</h2>
       <p class="lead">A few representative initiatives from recent years.</p>
       <div class="grid">
         <article class="card">
@@ -160,6 +164,47 @@
           <h3>Video Analytics Platform</h3>
           <p>Product strategy, system design & roadmap for multi‑year rollout.</p>
           <p><span class="pill">Product Strategy</span><span class="pill">Video Analytics</span></p>
+        </article>
+      </div>
+
+      <!-- Academic & technical projects -->
+      <h2 style="margin-top:28px">Postgraduate Academic Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Robust RAG: Layered Defences (Cross-Encoder, RbFT, RobustRAG)</h3>
+          <p>
+            Built a step-wise RAG pipeline (Arch-1→7) to study robustness under retrieval corruption.
+            Findings: <em>RbFT</em> consistently most robust at higher attack strengths; cross-encoder
+            reranking doesn’t always help in robust stacks; RobustRAG underperforms at low attack;
+            combining all three showed no clear additive gains. Evaluated on NQ, TriviaQA, HotpotQA,
+            Musique, TruthfulQA with F1/EM.
+          </p>
+          <p><span class="pill">RAG</span><span class="pill">RbFT</span><span class="pill">RobustRAG</span></p>
+          <p><button class="btn view-slides" data-pdf="/assets/robustrag.pdf">View slides</button></p>
+        </article>
+
+        <article class="card">
+          <h3>Truthfulness Detection (LIAR; BERT + Metadata)</h3>
+          <p>
+            Multi-class truthfulness classification on LIAR. Custom BERT (uncased) with TF-IDF metadata
+            features delivered modest F1 improvements over text-only and outperformed MLP pipelines.
+            Class-weighted loss further helped minority labels. Practical take-away: metadata helps when
+            paired with contextual encoders; careful class balancing matters.
+          </p>
+          <p><span class="pill">NLP</span><span class="pill">Text Classification</span><span class="pill">BERT</span></p>
+          <p><button class="btn view-slides" data-pdf="/assets/truthfulness.pdf">View slides</button></p>
+        </article>
+
+        <article class="card">
+          <h3>Fraudulent Transactions ML Pipeline</h3>
+          <p>
+            End-to-end pipeline (Airflow, medallion data layers) for credit-card fraud detection. Compared
+            LR vs XGBoost under severe class imbalance (SMOTE; F1 as primary metric). XGBoost selected for
+            stable OOT performance and smoother decay. Monitoring with PSI/EvidentlyAI; shadow→canary→full
+            deployment strategy.
+          </p>
+          <p><span class="pill">ML Pipeline</span><span class="pill">XGBoost</span><span class="pill">Monitoring</span></p>
+          <p><button class="btn view-slides" data-pdf="/assets/fraud-pipeline.pdf">View slides</button></p>
         </article>
       </div>
     </section>
