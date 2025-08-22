@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alvin Lee — Technical Programme & Product Manager</title>
-  <meta name="description" content="Technical programme and product manager with 8+ years' experience in systems engineering, large-scale integration, and product development." />
+  <meta name="description" content="Technical programme and product manager with 8+ years' experience in systems engineering, large-scale integration, and product development. Currently pursuing MITB (AI) at SMU — graduating Nov 2025." />
   <meta property="og:title" content="Alvin Lee — Technical Programme & Product Manager" />
-  <meta property="og:description" content="Technical programme and product manager with 8+ years' experience in systems engineering, large-scale integration, and product development." />
+  <meta property="og:description" content="Technical programme and product manager with 8+ years' experience in systems engineering, large-scale integration, and product development. Currently pursuing MITB (AI) at SMU — graduating Nov 2025." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛠️</text></svg>"> 
   <style>
     :root {
@@ -80,9 +80,14 @@
     .pill { display:inline-block; font-size: 12px; padding: 4px 8px; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--text) 16%, transparent); margin-right: 6px; opacity: 0.9; }
 
     /* Footer */
-    footer { padding: 48px 24px; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
-    }
+    footer { padding: 48px 24px; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent); }
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+    /* Slides modal */
+    #slidesModal { width: min(1200px,95vw); height: min(85vh,900px); border: none; padding: 0; }
+    #slidesModal::backdrop { background: rgba(0,0,0,.55); }
+    #slidesModal iframe { width: 100%; height: 100%; border: 0; }
+    #slidesModal .close { position: absolute; top: 8px; right: 8px; background: transparent; border: 0; font-size: 20px; color: var(--text); cursor: pointer; }
   </style>
 </head>
 <body>
@@ -108,6 +113,13 @@
       <div>
         <h1>Technical Programme & Product Manager — Complex Systems & AI Solutions</h1>
         <p>Hi, I’m <strong>Alvin Lee</strong>, a technical programme and product manager with over eight years’ experience in systems engineering, large-scale systems integration, and product development. I have led multi-million-dollar projects from concept to deployment, spanning defence systems, virtualization solutions, and AI-driven platforms. My work blends technical leadership with strategic vision — delivering innovations that cut costs, improve efficiency, and unlock new capabilities.</p>
+
+        <!-- Current studies badges -->
+        <p style="margin: 6px 0 16px;">
+          <span class="pill">MITB (AI) — SMU</span>
+          <span class="pill">Graduating Nov 2025</span>
+        </p>
+
         <div class="hero-cta">
           <a class="btn" href="https://www.linkedin.com/in/alvin-lee-5a8bb91b6/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="Alvin%20Lee%20Ze%20Xian_Resume.pdf" download>Download CV</a>
@@ -162,7 +174,7 @@
         </article>
         <article class="card">
           <h3>Video Analytics Platform</h3>
-          <p>Product strategy, system design & roadmap for multi‑year rollout.</p>
+          <p>Product strategy, system design & roadmap for multi-year rollout.</p>
           <p><span class="pill">Product Strategy</span><span class="pill">Video Analytics</span></p>
         </article>
       </div>
@@ -173,7 +185,7 @@
         <article class="card">
           <h3>Robust RAG: Layered Defences (Cross-Encoder, RbFT, RobustRAG)</h3>
           <p>
-            Built a step-wise RAG pipeline (Arch-1→7) to study robustness under retrieval corruption.
+            Built a step-wise RAG pipelines to study robustness under retrieval corruption.
             Findings: <em>RbFT</em> consistently most robust at higher attack strengths; cross-encoder
             reranking doesn’t always help in robust stacks; RobustRAG underperforms at low attack;
             combining all three showed no clear additive gains. Evaluated on NQ, TriviaQA, HotpotQA,
@@ -212,6 +224,13 @@
     <section id="education">
       <h2>Education</h2>
       <div class="grid">
+        <!-- SMU MITB (AI) — In Progress -->
+        <div class="card">
+          <h3>SMU — Master of IT in Business (AI Track)</h3>
+          <p>Candidate · <strong>Expected Nov 2025</strong></p>
+          <p><span class="pill">In Progress</span> <span class="pill">AI / ML</span> <span class="pill">NLP &amp; RAG</span> <span class="pill">MLOps</span></p>
+        </div>
+
         <div class="card"><h3>B.Eng. Electrical & Electronic Engineering (First Class Honours)</h3><p>NTU Singapore (2015)</p></div>
         <div class="card"><h3>Diploma in Aerospace Engineering (with Merit)</h3><p>Singapore Polytechnic (2010)</p></div>
         <div class="card"><h3>Diploma Plus: Certificate in Engineering Mathematics</h3><p>Singapore Polytechnic (2010)</p></div>
@@ -228,7 +247,7 @@
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li><strong>Technical:</strong> C++, Python, Matlab, Circuit Design & Testing</li>
+        <li><strong>Technical:</strong> C++, Python, Matlab, Circuit Design &amp; Testing</li>
         <li><strong>Languages:</strong> English (native), Mandarin (fluent)</li>
         <li><strong>Core Strengths:</strong> Systems Engineering, Product Strategy, Programme Management, Complex Systems Integration</li>
       </ul>
@@ -256,7 +275,6 @@
       </div>
     </section>
 
-
     <section id="contact">
       <h2>Contact</h2>
       <p>Best via LinkedIn or email.</p>
@@ -269,10 +287,11 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Alvin Lee. Built with HTML/CSS. Deployed on GHitub Pages.</div>
+    <div class="container">© <span id="year"></span> Alvin Lee. Built with HTML/CSS. Deployed on GitHub Pages.</div>
   </footer>
 
   <script>
+    // Year + theme toggle
     document.getElementById('year').textContent = new Date().getFullYear();
     const btn = document.getElementById('themeToggle');
     const saved = localStorage.getItem('theme');
@@ -287,6 +306,41 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       btn.textContent = next === 'light' ? '🌞' : '🌙';
+    });
+  </script>
+
+  <!-- Slides Modal -->
+  <dialog id="slidesModal" aria-label="Slides viewer">
+    <form method="dialog"><button class="close" aria-label="Close">✕</button></form>
+    <iframe id="slidesFrame" title="Slides viewer" loading="lazy"></iframe>
+  </dialog>
+
+  <script>
+    // Slides modal: open PDFs from <button class="view-slides" data-pdf="...">
+    const slidesModal = document.getElementById('slidesModal');
+    const slidesFrame = document.getElementById('slidesFrame');
+
+    function openSlides(pdfPath) {
+      // Encode spaces/& safely for URL and for #view anchors
+      const encoded = encodeURI(pdfPath); // encodes spaces etc., keeps path intact
+      slidesFrame.src = `${encoded}#view=FitH`; // native PDF viewer
+      if (slidesModal && typeof slidesModal.showModal === 'function') slidesModal.showModal();
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.view-slides');
+      if (!btn) return;
+      e.preventDefault();
+      openSlides(btn.getAttribute('data-pdf'));
+    });
+
+    slidesModal?.addEventListener('close', () => { slidesFrame.src = 'about:blank'; });
+
+    // Close if user clicks outside the dialog (optional)
+    slidesModal?.addEventListener('click', (e) => {
+      const r = slidesModal.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) slidesModal.close();
     });
   </script>
 </body>
